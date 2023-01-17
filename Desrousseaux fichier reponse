@@ -226,24 +226,42 @@ Que signifie la mention Merge made by the ... strategy indiquée par la sortie d
 Merge made by the 'ort' strategy. Signifie que la fusion des 2 branches s'est effectué selon la méthode ort, qui est différente des stratégies récursive, résolution ...
 
 Quelle est la différence fondamentale avec la fusion précédente ?
-Master n'était pas commit lors de la première fusion alors que la fusion2 a été commit sur la fusion précédente
+La fusion précédente fusionnait avec 2 branches au même niveau alors que la fusion actuelle fusionne avec une branche qui était à un niveau précédent
 
 Créer une nouvelle branche fonctionnalite3, se déplacer dessus, et modifier le fichier fichier1.md en y ajoutant une ligne de texte. Committer : "Modification fichier1 pour fonctionnalité 3"
+git branch fonctionnalite3
+git checkout fonctionnalite3
+nano fichier1.md
 
 Comment utiliser Git Graph pour qu'il nous montre les différences entre l'ancienne version de fichier1.md et la version courante que l'on vient de committer ?
+Il faut aller sur le commit, puis cliquer sur le nom du fichier qui a été modifié et vscode affiche a gauche la version précédente et a droite la version modifié avec les modifications surlignées en vert 
 
 Repartir sur master, et modifier fichier1.md en y ajoutant aussi une ligne (différente de celle qu'on a ajoutée sur l'autre branche)
+git checkout master
+sudo nano fichier1.md
 
 Tenter de fusionner la branche fonctionnalite3 avec master
-	Que se passe-t-il et pourquoi ?
+git merge fonctionnalite 3 : 
+Mise à jour 3203fdf..23e7f3b
+error: Vos modifications locales aux fichiers suivants seraient écrasées par la fusion :
+	fichier1.md
+Veuillez valider ou remiser vos modifications avant la fusion.
+Abandon
+
+Que se passe-t-il et pourquoi ?
+	Il y a une erreur car le fichier 1.md existe dans les 2 branches mais pas les mêmes versions donc git ne sait pas laquelle il doit garder.
+	
 Lancer un git status
-        Que doit-on faire si on veut annuler la fusion en cours ?
-    On veut résoudre le conflit. Plusieurs possibilités :
-        Conserver uniquement les modifications faites dans fonctionnalite3
-        Conserver uniquement les modifications faites dans master
-        Conserver les deux modifications
-        Supprimer les deux modifications ou remanier sensiblement le fichier pour les intégrer correctement
-    Git nous laisse totalement la main et ne va pas essayer d'imposer l'un de ces choix pour nous, ni nous assister dans l'application automatique de l'un d'entre eux : il faut examiner le(s) fichier(s) en conflit et éditer nous-mêmes
+Que doit-on faire si on veut annuler la fusion en cours ?
+On doit modifier le fichier1.md et faire en sorte qu'il n'y ait plus de conflit
+
+On veut résoudre le conflit. Plusieurs possibilités :
+	Conserver uniquement les modifications faites dans fonctionnalite3
+	Conserver uniquement les modifications faites dans master
+	Conserver les deux modifications
+	Supprimer les deux modifications ou remanier sensiblement le fichier pour les intégrer correctement
+	
+Git nous laisse totalement la main et ne va pas essayer d'imposer l'un de ces choix pour nous, ni nous assister dans l'application automatique de l'un d'entre eux : il faut examiner le(s) fichier(s) en conflit et éditer nous-mêmes
     Ouvrir le fichier en question sous VS Code
         La chaîne <<<<<<<<<< marque le début du conflit
         La chaîne >>>>>>>>>> marque la fin du conflit
@@ -263,4 +281,5 @@ Lancer un git status
         Nouvelle tâche ? => nouvelle branche à partir d'un commit de la branche d'intégration (en général le plus récent)
         Tâche terminée ? => fusion dans la branche d'intégration et suppression de la branche
     Supprimer les trois branches fonctionnalitex (attention : on ne peut pas supprimer une branche sur laquelle on est)
+
 
