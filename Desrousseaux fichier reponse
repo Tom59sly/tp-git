@@ -194,8 +194,9 @@ git log --oneline --decorate --graph --all
 Noter la « déviation » entre les deux branches, à partir de la branche master
     
 Installer l'extension VS Code Git Graph et visualiser le graphe actuel des commits à l'aide de cette extension
-Sur cette représentation, que représente les points ?
+Sur cette représentation, que représente les points ? 
 Les points représentent les commit effectués
+
 Comment voit-on sur quelle branche on est actuellement ?
 Le point est affiché en noir à l'intérieur et le nom de la branche et son message de commit sont en gras
    
@@ -217,11 +218,15 @@ Tout les commit de la branche que l'on vient de fusionner sont mis directement d
 On veut maintenant fusionner fonctionnalite2 dans la branche d'intégration (master)
 
 Effectuer cette fusion
+git checkout master
+git merge fonctionnalite2
 
-ON EST ICI
+Noter le changement dans l'onglet Git Graph. 
+Que signifie la mention Merge made by the ... strategy indiquée par la sortie de la commande ?
+Merge made by the 'ort' strategy. Signifie que la fusion des 2 branches s'est effectué selon la méthode ort, qui est différente des stratégies récursive, résolution ...
 
-    Noter le changement dans l'onglet Git Graph. Que signifie la mention Merge made by the ... strategy indiquée par la sortie de la commande ?
-    Quelle est la différence fondamentale avec la fusion précédente ?
+Quelle est la différence fondamentale avec la fusion précédente ?
+
     Créer une nouvelle branche fonctionnalite3, se déplacer dessus, et modifier le fichier fichier1.md en y ajoutant une ligne de texte. Committer : "Modification fichier1 pour fonctionnalité 3"
         Comment utiliser Git Graph pour qu'il nous montre les différences entre l'ancienne version de fichier1.md et la version courante que l'on vient de committer ?
     Repartir sur master, et modifier fichier1.md en y ajoutant aussi une ligne (différente de celle qu'on a ajoutée sur l'autre branche)
