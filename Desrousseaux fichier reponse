@@ -253,6 +253,7 @@ Que se passe-t-il et pourquoi ?
 	
 Lancer un git status
 Que doit-on faire si on veut annuler la fusion en cours ?
+git reset
 On doit modifier le fichier1.md et faire en sorte qu'il n'y ait plus de conflit
 
 On veut résoudre le conflit. Plusieurs possibilités :
