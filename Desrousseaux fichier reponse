@@ -288,20 +288,40 @@ Git nous laisse totalement la main et ne va pas essayer d'imposer l'un de ces ch
         Tâche terminée ? => fusion dans la branche d'intégration et suppression de la branche
     Supprimer les trois branches fonctionnalitex (attention : on ne peut pas supprimer une branche sur laquelle on est)
 
-aire un fork du dépôt https://github.com/rose-line/sio1-2024-java-grpa (pas par commande Git, c'est sur l'interface GitHub)
+
+
+
+
+
+------------------ Travailler avec un hébergeur Git distant ------------
+
+Faire un fork du dépôt https://github.com/rose-line/sio1-2024-java-grpa (pas par commande Git, c'est sur l'interface GitHub)
+
 Cloner localement votre fork (ne pas cloner le dépôt original)
+git clone https://github.com/Tom59sly/sio1-2024-java-grpa.git
 
     Quelle est la différence entre un fork et un clonage ?
+    Un fork est relié au dépot de base et permet de proposer des modification en ligne.
+    Un Clone est une copie du dépot initial sans qu'il n'y ait de lien avec ce dépot inital, c'est comme si on avait crée le dépot nous même  
+    
     Indiquer dans quelles circonstances on voudrait forker et/ou cloner un dépôt
+    Fork quand on souhaite travailler en groupe en gardant un lien avec le dépot de base et un clone quand on veut utiliser le dépot en local ou le sauvegarder sur notre compte github
+
 
 Modifier le fichier README.md à la racine du dépôt en ajoutant une ligne quelconque
 On veut maintenant envoyer cette modification vers le dépôt distant
 
     Il faut d'abord faire un add/commit local
+    git add README.md
+    git commit -m "Modification fichier"
+    
     Puis utiliser la commande qui « pousse » les modifs sur le dépôt GitHub (push)
+    git push 
     Vérifier directement sur GitHub que le push a bien fonctionné
 
 Trouver la commande qui affiche le nom du ou des dépôt(s) distant(s) relié(s) avec le dépôt local : cela permet de savoir si le dépôt courant est synchronisé avec un dépôt en ligne ou non
+
+
 Merge en local puis push :
 
     Créer une branche locale bugfix1, se déplacer dessus, créer un nouveau fichier ok.java à la racine du dépôt
